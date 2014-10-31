@@ -61,11 +61,7 @@ WSGI_APPLICATION = 'django_heroku.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    		'USER': '',
-				'PASSWORD': '',
-				'HOST': '',
-				'PORT': '',
+				'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 		}
 }
 
@@ -80,9 +76,7 @@ USE_TZ = True
 
 
 # Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
-
-# Enable Connection Pooling (if desired)
+DATABASES['default'] = dj_database_url.config()
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
